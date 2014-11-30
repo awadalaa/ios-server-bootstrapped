@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7BADAC62-7CDA-4F0B-9D38-77196C0028B7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>login</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>74209A351E2E90B7B77B870BC7CA767DFB6ADA37</key>
+		<string>https://github.com/awadalaa/ios-server-bootstrapped.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios-app/login.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>74209A351E2E90B7B77B870BC7CA767DFB6ADA37</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/awadalaa/ios-server-bootstrapped.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>74209A351E2E90B7B77B870BC7CA767DFB6ADA37</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>74209A351E2E90B7B77B870BC7CA767DFB6ADA37</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios-server-bootstrapped</string>
+		</dict>
+	</array>
+</dict>
+</plist>
