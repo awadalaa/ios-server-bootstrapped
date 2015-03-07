@@ -25,7 +25,6 @@
 -(void)viewDidLoad{
     self.emailText.delegate = self;
     self.passwordText.delegate = self;
-    //[self.loginButton setBackgroundColor:[UIColor colorWithRed:24.0/255 green:188.0/255 blue:156.0/255 alpha:0.7]];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{

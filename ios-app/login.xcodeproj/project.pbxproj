@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		680F044D1AABB81F00A33F31 /* UIColor+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F044C1AABB81F00A33F31 /* UIColor+Extended.m */; };
 		68F5D3C31A28EFF7005A754D /* SQNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F5D3C21A28EFF7005A754D /* SQNavigationController.m */; };
 		68F5D3C71A28FAD7005A754D /* SQNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F5D3C61A28FAD7005A754D /* SQNetworking.m */; };
 		68F5D3CB1A2A36F2005A754D /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F5D3CA1A2A36F2005A754D /* NSDictionary+UrlEncoding.m */; };
@@ -25,7 +26,6 @@
 		DAD7161619A629BE009D39CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD715F519A629BE009D39CB /* UIKit.framework */; };
 		DAD7161E19A629BE009D39CB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAD7161C19A629BE009D39CB /* InfoPlist.strings */; };
 		DAD7162019A629BE009D39CB /* loginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD7161F19A629BE009D39CB /* loginTests.m */; };
-		DAD7162B19A62E49009D39CB /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD7162A19A62E49009D39CB /* bg@2x.png */; };
 		DAD7162E19A630E2009D39CB /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD7162D19A630E2009D39CB /* LoginController.m */; };
 /* End PBXBuildFile section */
 
@@ -40,36 +40,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		68F5D3C11A28EFF7005A754D /* SQNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQNavigationController.h; sourceTree = "<group>"; };
-		68F5D3C21A28EFF7005A754D /* SQNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQNavigationController.m; sourceTree = "<group>"; };
-		68F5D3C51A28FAD7005A754D /* SQNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQNetworking.h; sourceTree = "<group>"; };
-		68F5D3C61A28FAD7005A754D /* SQNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQNetworking.m; sourceTree = "<group>"; };
-		68F5D3C91A2A36F2005A754D /* NSDictionary+UrlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UrlEncoding.h"; sourceTree = "<group>"; };
-		68F5D3CA1A2A36F2005A754D /* NSDictionary+UrlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UrlEncoding.m"; sourceTree = "<group>"; };
+		680F044B1AABB81F00A33F31 /* UIColor+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Extended.h"; path = "Categories/UIColor+Extended.h"; sourceTree = "<group>"; };
+		680F044C1AABB81F00A33F31 /* UIColor+Extended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Extended.m"; path = "Categories/UIColor+Extended.m"; sourceTree = "<group>"; };
+		68F5D3C11A28EFF7005A754D /* SQNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQNavigationController.h; path = ViewControllers/SQNavigationController.h; sourceTree = "<group>"; };
+		68F5D3C21A28EFF7005A754D /* SQNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQNavigationController.m; path = ViewControllers/SQNavigationController.m; sourceTree = "<group>"; };
+		68F5D3C51A28FAD7005A754D /* SQNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQNetworking.h; path = Networking/SQNetworking.h; sourceTree = "<group>"; };
+		68F5D3C61A28FAD7005A754D /* SQNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQNetworking.m; path = Networking/SQNetworking.m; sourceTree = "<group>"; };
+		68F5D3C91A2A36F2005A754D /* NSDictionary+UrlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+UrlEncoding.h"; path = "Categories/NSDictionary+UrlEncoding.h"; sourceTree = "<group>"; };
+		68F5D3CA1A2A36F2005A754D /* NSDictionary+UrlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+UrlEncoding.m"; path = "Categories/NSDictionary+UrlEncoding.m"; sourceTree = "<group>"; };
 		DAD715EE19A629BE009D39CB /* login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD715F119A629BE009D39CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DAD715F319A629BE009D39CB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DAD715F519A629BE009D39CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		DAD715F919A629BE009D39CB /* login-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "login-Info.plist"; sourceTree = "<group>"; };
+		DAD715F919A629BE009D39CB /* login-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "login-Info.plist"; path = "SupportingFiles/login-Info.plist"; sourceTree = "<group>"; };
 		DAD715FB19A629BE009D39CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DAD715FD19A629BE009D39CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DAD715FF19A629BE009D39CB /* login-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "login-Prefix.pch"; sourceTree = "<group>"; };
-		DAD7160019A629BE009D39CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		DAD7160119A629BE009D39CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DAD715FD19A629BE009D39CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SupportingFiles/main.m; sourceTree = "<group>"; };
+		DAD715FF19A629BE009D39CB /* login-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "login-Prefix.pch"; path = "SupportingFiles/login-Prefix.pch"; sourceTree = "<group>"; };
+		DAD7160019A629BE009D39CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SupportingFiles/AppDelegate.h; sourceTree = "<group>"; };
+		DAD7160119A629BE009D39CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SupportingFiles/AppDelegate.m; sourceTree = "<group>"; };
 		DAD7160419A629BE009D39CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DAD7160619A629BE009D39CB /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		DAD7160719A629BE009D39CB /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		DAD7160919A629BE009D39CB /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		DAD7160A19A629BE009D39CB /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		DAD7160619A629BE009D39CB /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = ViewControllers/MasterViewController.h; sourceTree = "<group>"; };
+		DAD7160719A629BE009D39CB /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = ViewControllers/MasterViewController.m; sourceTree = "<group>"; };
+		DAD7160919A629BE009D39CB /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = ViewControllers/DetailViewController.h; sourceTree = "<group>"; };
+		DAD7160A19A629BE009D39CB /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = ViewControllers/DetailViewController.m; sourceTree = "<group>"; };
 		DAD7160C19A629BE009D39CB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAD7161219A629BE009D39CB /* loginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = loginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD7161319A629BE009D39CB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DAD7161B19A629BE009D39CB /* loginTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "loginTests-Info.plist"; sourceTree = "<group>"; };
 		DAD7161D19A629BE009D39CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DAD7161F19A629BE009D39CB /* loginTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = loginTests.m; sourceTree = "<group>"; };
-		DAD7162A19A62E49009D39CB /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
-		DAD7162C19A630E2009D39CB /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
-		DAD7162D19A630E2009D39CB /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		DAD7162C19A630E2009D39CB /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = ViewControllers/LoginController.h; sourceTree = "<group>"; };
+		DAD7162D19A630E2009D39CB /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = ViewControllers/LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,16 +106,18 @@
 			name = Networking;
 			sourceTree = "<group>";
 		};
-		68F5D3C81A2A36D1005A754D /* Category */ = {
+		68F5D3C81A2A36D1005A754D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
 				68F5D3C91A2A36F2005A754D /* NSDictionary+UrlEncoding.h */,
 				68F5D3CA1A2A36F2005A754D /* NSDictionary+UrlEncoding.m */,
+				680F044B1AABB81F00A33F31 /* UIColor+Extended.h */,
+				680F044C1AABB81F00A33F31 /* UIColor+Extended.m */,
 			);
-			name = Category;
+			name = Categories;
 			sourceTree = "<group>";
 		};
-		68F5D3CC1A2A39F5005A754D /* Controllers */ = {
+		68F5D3CC1A2A39F5005A754D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				DAD7160619A629BE009D39CB /* MasterViewController.h */,
@@ -126,7 +129,7 @@
 				68F5D3C11A28EFF7005A754D /* SQNavigationController.h */,
 				68F5D3C21A28EFF7005A754D /* SQNavigationController.m */,
 			);
-			name = Controllers;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		DAD715E519A629BE009D39CB = {
@@ -162,10 +165,9 @@
 		DAD715F719A629BE009D39CB /* login */ = {
 			isa = PBXGroup;
 			children = (
-				68F5D3CC1A2A39F5005A754D /* Controllers */,
-				68F5D3C81A2A36D1005A754D /* Category */,
+				68F5D3CC1A2A39F5005A754D /* ViewControllers */,
+				68F5D3C81A2A36D1005A754D /* Categories */,
 				68F5D3C41A28FAA6005A754D /* Networking */,
-				DAD7162919A62E3E009D39CB /* Images */,
 				DAD7160319A629BE009D39CB /* Main.storyboard */,
 				DAD7160C19A629BE009D39CB /* Images.xcassets */,
 				DAD715F819A629BE009D39CB /* Supporting Files */,
@@ -202,14 +204,6 @@
 				DAD7161C19A629BE009D39CB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DAD7162919A62E3E009D39CB /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				DAD7162A19A62E49009D39CB /* bg@2x.png */,
-			);
-			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,7 +285,6 @@
 				DAD7160D19A629BE009D39CB /* Images.xcassets in Resources */,
 				DAD715FC19A629BE009D39CB /* InfoPlist.strings in Resources */,
 				DAD7160519A629BE009D39CB /* Main.storyboard in Resources */,
-				DAD7162B19A62E49009D39CB /* bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +307,7 @@
 				68F5D3CB1A2A36F2005A754D /* NSDictionary+UrlEncoding.m in Sources */,
 				DAD7160219A629BE009D39CB /* AppDelegate.m in Sources */,
 				DAD7160819A629BE009D39CB /* MasterViewController.m in Sources */,
+				680F044D1AABB81F00A33F31 /* UIColor+Extended.m in Sources */,
 				68F5D3C31A28EFF7005A754D /* SQNavigationController.m in Sources */,
 				DAD715FE19A629BE009D39CB /* main.m in Sources */,
 				DAD7160B19A629BE009D39CB /* DetailViewController.m in Sources */,
