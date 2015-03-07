@@ -27,8 +27,18 @@
     self.passwordText.delegate = self;
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    return YES;
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)sender{
+    if ([sender isEqual:self.emailText] || [sender isEqual:self.passwordText])
+    {
+        if  (self.view.frame.origin.y >= 0)
+        {
+            [self setViewMovedUp:YES];
+        }
+        else if (self.view.frame.origin.y < 0)
+        {
+            [self setViewMovedUp:NO];
+        }
+    }
 }
 
 
@@ -38,7 +48,7 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)sender{
-    if ([sender isEqual:self.emailText] || [sender isEqual:self.passwordText]  )
+    if ([sender isEqual:self.emailText] || [sender isEqual:self.passwordText])
     {
         if  (self.view.frame.origin.y >= 0)
         {
