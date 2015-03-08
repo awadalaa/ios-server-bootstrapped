@@ -27,20 +27,6 @@
     self.passwordText.delegate = self;
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)sender{
-    if ([sender isEqual:self.emailText] || [sender isEqual:self.passwordText])
-    {
-        if  (self.view.frame.origin.y >= 0)
-        {
-            [self setViewMovedUp:YES];
-        }
-        else if (self.view.frame.origin.y < 0)
-        {
-            [self setViewMovedUp:NO];
-        }
-    }
-}
-
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];

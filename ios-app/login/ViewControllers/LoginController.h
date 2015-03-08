@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AuthenticationDelegate.h"
 
-@interface LoginController : UIViewController <UITextFieldDelegate>
+@protocol AuthenticationDelegate;
+
+@interface LoginController : UIViewController <UITextFieldDelegate,AuthenticationDelegate>
+
+@property (nonatomic, weak) id<AuthenticationDelegate> delegate;
+
 @end
