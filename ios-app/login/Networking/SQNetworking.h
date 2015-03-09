@@ -3,7 +3,7 @@
 //  login
 //
 //  Created by Alaa Awad on 11/28/14.
-//  Copyright (c) 2014 Alaa Awad. All rights reserved.
+//  Copyright (c) 2014 Technalaa. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

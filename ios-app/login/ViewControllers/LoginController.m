@@ -3,12 +3,12 @@
 //  login
 //
 //  Created by Alaa Awad on 11/28/14.
-//  Copyright (c) 2014 Alaa Awad. All rights reserved.
+//  Copyright (c) 2014 Technalaa. All rights reserved.
 //
 
 #import "LoginController.h"
 #import "SQNetworking.h"
-
+#import "KeychainItemWrapper.h"
 
 @interface LoginController()
 @property (weak, nonatomic) IBOutlet UITextField *emailText;
@@ -23,8 +23,10 @@
 #define kOFFSET_FOR_KEYBOARD 80.0
 
 -(void)viewDidLoad{
+    [super viewDidLoad];
     self.emailText.delegate = self;
     self.passwordText.delegate = self;
+    self.authenticationDelegate = self;
 }
 
 
@@ -131,10 +133,6 @@
 
 - (IBAction)login:(id)sender
 {
-    //NSString *post = [NSString stringWithFormat:@"Username=%@&Password=%@",self.emailText.text,self.passwordText.text];
-    //NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    //NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
-    
     if (self.emailText.text.length != 0 &&
         self.passwordText.text.length != 0) {
         [self performSelector:@selector(loginRequest) withObject:nil];
@@ -159,6 +157,8 @@
             if ([response objectForKey:@"error"]){
                 [self loginError];
             }else{
+                KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] init];
+                [keychain setKeychainData:response];
                 [self performSegueWithIdentifier:@"loginSuccessSegue" sender:self];
             }
         }else{

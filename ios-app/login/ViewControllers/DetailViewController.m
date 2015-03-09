@@ -3,7 +3,7 @@
 //  login
 //
 //  Created by Alaa Awad on 21/08/2014.
-//  Copyright (c) 2014 Alaa Awad. All rights reserved.
+//  Copyright (c) 2014 Technalaa. All rights reserved.
 //
 
 #import "DetailViewController.h"

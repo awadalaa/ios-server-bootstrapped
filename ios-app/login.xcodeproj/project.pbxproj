@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		680F044D1AABB81F00A33F31 /* UIColor+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F044C1AABB81F00A33F31 /* UIColor+Extended.m */; };
+		68CF7D861AAC1E6A00595CA8 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CF7D851AAC1E6A00595CA8 /* KeychainItemWrapper.m */; };
 		68F5D3C31A28EFF7005A754D /* SQNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F5D3C21A28EFF7005A754D /* SQNavigationController.m */; };
 		68F5D3C71A28FAD7005A754D /* SQNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F5D3C61A28FAD7005A754D /* SQNetworking.m */; };
 		68F5D3CB1A2A36F2005A754D /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F5D3CA1A2A36F2005A754D /* NSDictionary+UrlEncoding.m */; };
@@ -43,6 +44,8 @@
 		680F044B1AABB81F00A33F31 /* UIColor+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Extended.h"; path = "Categories/UIColor+Extended.h"; sourceTree = "<group>"; };
 		680F044C1AABB81F00A33F31 /* UIColor+Extended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Extended.m"; path = "Categories/UIColor+Extended.m"; sourceTree = "<group>"; };
 		68CF7D811AABD02200595CA8 /* AuthenticationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthenticationDelegate.h; path = Protocols/AuthenticationDelegate.h; sourceTree = "<group>"; };
+		68CF7D841AAC1E6A00595CA8 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainItemWrapper.h; path = Networking/KeychainItemWrapper.h; sourceTree = "<group>"; };
+		68CF7D851AAC1E6A00595CA8 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainItemWrapper.m; path = Networking/KeychainItemWrapper.m; sourceTree = "<group>"; };
 		68F5D3C11A28EFF7005A754D /* SQNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQNavigationController.h; path = ViewControllers/SQNavigationController.h; sourceTree = "<group>"; };
 		68F5D3C21A28EFF7005A754D /* SQNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQNavigationController.m; path = ViewControllers/SQNavigationController.m; sourceTree = "<group>"; };
 		68F5D3C51A28FAD7005A754D /* SQNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQNetworking.h; path = Networking/SQNetworking.h; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 			children = (
 				68F5D3C51A28FAD7005A754D /* SQNetworking.h */,
 				68F5D3C61A28FAD7005A754D /* SQNetworking.m */,
+				68CF7D841AAC1E6A00595CA8 /* KeychainItemWrapper.h */,
+				68CF7D851AAC1E6A00595CA8 /* KeychainItemWrapper.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -261,7 +266,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "Paul Jackson";
+				ORGANIZATIONNAME = Technalaa;
 				TargetAttributes = {
 					DAD7161119A629BE009D39CB = {
 						TestTargetID = DAD715ED19A629BE009D39CB;
@@ -321,6 +326,7 @@
 				68F5D3C31A28EFF7005A754D /* SQNavigationController.m in Sources */,
 				DAD715FE19A629BE009D39CB /* main.m in Sources */,
 				DAD7160B19A629BE009D39CB /* DetailViewController.m in Sources */,
+				68CF7D861AAC1E6A00595CA8 /* KeychainItemWrapper.m in Sources */,
 				68F5D3C71A28FAD7005A754D /* SQNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

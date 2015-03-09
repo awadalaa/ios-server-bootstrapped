@@ -3,7 +3,7 @@
 //  login
 //
 //  Created by Alaa Awad on 21/08/2014.
-//  Copyright (c) 2014 Alaa Awad. All rights reserved.
+//  Copyright (c) 2014 Technalaa. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,6 +13,6 @@
 
 @interface LoginController : UIViewController <UITextFieldDelegate,AuthenticationDelegate>
 
-@property (nonatomic, weak) id<AuthenticationDelegate> delegate;
+@property (nonatomic, weak) id<AuthenticationDelegate> authenticationDelegate;
 
 @end
