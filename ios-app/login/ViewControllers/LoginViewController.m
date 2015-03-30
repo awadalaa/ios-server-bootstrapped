@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Technalaa. All rights reserved.
 //
 
-#import "LoginController.h"
+#import "LoginViewController.h"
 #import "SQNetworking.h"
 #import "KeychainItemWrapper.h"
 
-@interface LoginController()
+@interface LoginViewController()
 @property (weak, nonatomic) IBOutlet UITextField *emailText;
 @property (weak, nonatomic) IBOutlet UITextField *passwordText;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation LoginController
+@implementation LoginViewController
 
 #define kOFFSET_FOR_KEYBOARD 80.0
 
