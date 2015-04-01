@@ -10,13 +10,13 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-//#import "SQCameraToolbar.h"
+#import "SQCameraToolbar.h"
 #import "UIImage+SQImageUtilities.h"
 
 #import "SQCropBox.h"
 #import "SQImageLibraryViewController.h"
 
-@interface SQCameraViewController () </*SQCameraToolbarDelegate,*/ UIAlertViewDelegate, SQImageLibraryViewControllerDelegate>
+@interface SQCameraViewController () <SQCameraToolbarDelegate, UIAlertViewDelegate, SQImageLibraryViewControllerDelegate>
 
 @property (nonatomic, strong) UIView *imagePreview;
 
@@ -27,7 +27,7 @@
 @property (nonatomic, strong) UIToolbar *topView;
 @property (nonatomic, strong) UIToolbar *bottomView;
 @property (nonatomic, strong) SQCropBox *cropBox;
-//@property (nonatomic, strong) SQCameraToolbar *cameraToolbar;
+@property (nonatomic, strong) SQCameraToolbar *cameraToolbar;
 
 @end
 
@@ -50,8 +50,8 @@
     self.topView = [UIToolbar new];
     self.bottomView = [UIToolbar new];
     self.cropBox = [SQCropBox new];
-//    self.cameraToolbar = [[SQCameraToolbar alloc] initWithImageNames:@[@"rotate", @"road"]];
-//    self.cameraToolbar.delegate = self;
+    self.cameraToolbar = [[SQCameraToolbar alloc] initWithImageNames:@[@"rotate", @"photos"]];
+    self.cameraToolbar.delegate = self;
     UIColor *whiteBG = [UIColor colorWithWhite:1.0 alpha:.15];
     self.topView.barTintColor = whiteBG;
     self.bottomView.barTintColor = whiteBG;
@@ -61,7 +61,7 @@
 
 - (void) addViewsToViewHierarchy {
     NSMutableArray *views = [@[self.imagePreview, self.cropBox, self.topView, self.bottomView] mutableCopy];
-//    [views addObject:self.cameraToolbar];
+    [views addObject:self.cameraToolbar];
     
     for (UIView *view in views) {
         [self.view addSubview:view];
@@ -131,9 +131,9 @@
     
     self.imagePreview.frame = self.view.bounds;
     self.captureVideoPreviewLayer.frame = self.imagePreview.bounds;
-    /*
+    
     CGFloat cameraToolbarHeight = 100;
-    self.cameraToolbar.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - cameraToolbarHeight, width, cameraToolbarHeight);*/
+    self.cameraToolbar.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - cameraToolbarHeight, width, cameraToolbarHeight);
 }
 
 #pragma mark - Event Handling
@@ -149,7 +149,7 @@
 }
 
 #pragma mark - SQCameraToolbarDelegate
-/*
+
 - (void) leftButtonPressedOnToolbar:(SQCameraToolbar *)toolbar {
     AVCaptureDeviceInput *currentCameraInput = self.session.inputs.firstObject;
     
@@ -232,7 +232,7 @@
         }
     }];
 }
-*/
+
 #pragma mark - SQImageLibraryViewControllerDelegate
 
 - (void) imageLibraryViewController:(SQImageLibraryViewController *)imageLibraryViewController didCompleteWithImage:(UIImage *)image {
