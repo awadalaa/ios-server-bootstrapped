@@ -1,5 +1,5 @@
 //
-//  SQCameraViewController.h
+//  SQ
 //  login
 //
 //  Created by Alaa M Awad on 3/31/15.
@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class SQCameraViewController;
+
+@protocol SQCameraViewControllerDelegate <NSObject>
+
+- (void) cameraViewController:(SQCameraViewController *)cameraViewController didCompleteWithImage:(UIImage *)image;
+
+@end
+
 @interface SQCameraViewController : UIViewController
+
+@property (nonatomic, weak) NSObject <SQCameraViewControllerDelegate> *delegate;
 
 @end

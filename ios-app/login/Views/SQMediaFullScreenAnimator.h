@@ -10,4 +10,8 @@
 
 @interface SQMediaFullScreenAnimator : NSObject
 
+@property (nonatomic, assign) BOOL presenting;
+@property (nonatomic, weak) UIImageView *cellImageView;
+
 @end
+

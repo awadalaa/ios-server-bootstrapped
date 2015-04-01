@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class SQImageLibraryViewController;
+
+@protocol SQImageLibraryViewControllerDelegate <NSObject>
+
+- (void) imageLibraryViewController:(SQImageLibraryViewController *)imageLibraryViewController didCompleteWithImage:(UIImage *)image;
+
+@end
+
 @interface SQImageLibraryViewController : UICollectionViewController
+
+@property (nonatomic, weak) NSObject <SQImageLibraryViewControllerDelegate> *delegate;
 
 @end

@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SQMediaFullScreenViewController.h"
 
-@interface SQCropViewController : UIViewController
+@class SQCropImageViewController;
+
+@protocol SQCropImageViewControllerDelegate <NSObject>
+
+- (void) cropControllerFinishedWithImage:(UIImage *)croppedImage;
+
+@end
+
+@interface SQCropImageViewController : SQMediaFullScreenViewController
+
+- (instancetype) initWithImage:(UIImage *)sourceImage;
+
+@property (nonatomic, weak) NSObject <SQCropImageViewControllerDelegate> *delegate;
 
 @end

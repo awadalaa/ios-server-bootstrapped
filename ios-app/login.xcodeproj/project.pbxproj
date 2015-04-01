@@ -14,6 +14,14 @@
 		5529FE561AC90ACE004F930B /* SQLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529FE551AC90ACE004F930B /* SQLikeButton.m */; };
 		5529FE591AC90BF0004F930B /* SQCircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529FE581AC90BF0004F930B /* SQCircleSpinnerView.m */; };
 		5529FE5C1AC90CF4004F930B /* SQComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529FE5B1AC90CF4004F930B /* SQComment.m */; };
+		55516A681ACB657F00B9FB57 /* SQMediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55516A671ACB657F00B9FB57 /* SQMediaTableViewCell.m */; };
+		55516A6E1ACB6E7400B9FB57 /* SQCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55516A6D1ACB6E7400B9FB57 /* SQCameraViewController.m */; };
+		55516A711ACB6F3E00B9FB57 /* SQCropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 55516A701ACB6F3E00B9FB57 /* SQCropBox.m */; };
+		55516A741ACB724F00B9FB57 /* UIImage+SQImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 55516A731ACB724F00B9FB57 /* UIImage+SQImageUtilities.m */; };
+		55516A771ACB734E00B9FB57 /* SQImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55516A761ACB734E00B9FB57 /* SQImageLibraryViewController.m */; };
+		55516A7A1ACB73DA00B9FB57 /* SQCropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55516A791ACB73DA00B9FB57 /* SQCropImageViewController.m */; };
+		55516A7D1ACB74B800B9FB57 /* SQMediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55516A7C1ACB74B800B9FB57 /* SQMediaFullScreenViewController.m */; };
+		55516A801ACB762800B9FB57 /* SQMediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55516A7F1ACB762800B9FB57 /* SQMediaFullScreenAnimator.m */; };
 		680F044D1AABB81F00A33F31 /* UIColor+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F044C1AABB81F00A33F31 /* UIColor+Extended.m */; };
 		68CF7D861AAC1E6A00595CA8 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CF7D851AAC1E6A00595CA8 /* KeychainItemWrapper.m */; };
 		68F5D3C31A28EFF7005A754D /* SQNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F5D3C21A28EFF7005A754D /* SQNavigationController.m */; };
@@ -61,6 +69,22 @@
 		5529FE581AC90BF0004F930B /* SQCircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQCircleSpinnerView.m; path = Views/SQCircleSpinnerView.m; sourceTree = "<group>"; };
 		5529FE5A1AC90CF4004F930B /* SQComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQComment.h; path = Models/SQComment.h; sourceTree = "<group>"; };
 		5529FE5B1AC90CF4004F930B /* SQComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQComment.m; path = Models/SQComment.m; sourceTree = "<group>"; };
+		55516A661ACB657F00B9FB57 /* SQMediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQMediaTableViewCell.h; path = Views/SQMediaTableViewCell.h; sourceTree = "<group>"; };
+		55516A671ACB657F00B9FB57 /* SQMediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQMediaTableViewCell.m; path = Views/SQMediaTableViewCell.m; sourceTree = "<group>"; };
+		55516A6C1ACB6E7400B9FB57 /* SQCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQCameraViewController.h; path = ViewControllers/SQCameraViewController.h; sourceTree = "<group>"; };
+		55516A6D1ACB6E7400B9FB57 /* SQCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQCameraViewController.m; path = ViewControllers/SQCameraViewController.m; sourceTree = "<group>"; };
+		55516A6F1ACB6F3E00B9FB57 /* SQCropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQCropBox.h; path = Views/SQCropBox.h; sourceTree = "<group>"; };
+		55516A701ACB6F3E00B9FB57 /* SQCropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQCropBox.m; path = Views/SQCropBox.m; sourceTree = "<group>"; };
+		55516A721ACB724F00B9FB57 /* UIImage+SQImageUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+SQImageUtilities.h"; path = "Categories/UIImage+SQImageUtilities.h"; sourceTree = "<group>"; };
+		55516A731ACB724F00B9FB57 /* UIImage+SQImageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SQImageUtilities.m"; path = "Categories/UIImage+SQImageUtilities.m"; sourceTree = "<group>"; };
+		55516A751ACB734E00B9FB57 /* SQImageLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQImageLibraryViewController.h; path = ViewControllers/SQImageLibraryViewController.h; sourceTree = "<group>"; };
+		55516A761ACB734E00B9FB57 /* SQImageLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQImageLibraryViewController.m; path = ViewControllers/SQImageLibraryViewController.m; sourceTree = "<group>"; };
+		55516A781ACB73DA00B9FB57 /* SQCropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQCropImageViewController.h; path = ViewControllers/SQCropImageViewController.h; sourceTree = "<group>"; };
+		55516A791ACB73DA00B9FB57 /* SQCropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQCropImageViewController.m; path = ViewControllers/SQCropImageViewController.m; sourceTree = "<group>"; };
+		55516A7B1ACB74B800B9FB57 /* SQMediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQMediaFullScreenViewController.h; path = ViewControllers/SQMediaFullScreenViewController.h; sourceTree = "<group>"; };
+		55516A7C1ACB74B800B9FB57 /* SQMediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQMediaFullScreenViewController.m; path = ViewControllers/SQMediaFullScreenViewController.m; sourceTree = "<group>"; };
+		55516A7E1ACB762800B9FB57 /* SQMediaFullScreenAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQMediaFullScreenAnimator.h; path = Views/SQMediaFullScreenAnimator.h; sourceTree = "<group>"; };
+		55516A7F1ACB762800B9FB57 /* SQMediaFullScreenAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQMediaFullScreenAnimator.m; path = Views/SQMediaFullScreenAnimator.m; sourceTree = "<group>"; };
 		680F044B1AABB81F00A33F31 /* UIColor+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Extended.h"; path = "Categories/UIColor+Extended.h"; sourceTree = "<group>"; };
 		680F044C1AABB81F00A33F31 /* UIColor+Extended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Extended.m"; path = "Categories/UIColor+Extended.m"; sourceTree = "<group>"; };
 		68CF7D811AABD02200595CA8 /* AuthenticationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthenticationDelegate.h; path = Protocols/AuthenticationDelegate.h; sourceTree = "<group>"; };
@@ -146,6 +170,12 @@
 				5529FE581AC90BF0004F930B /* SQCircleSpinnerView.m */,
 				5529FE5A1AC90CF4004F930B /* SQComment.h */,
 				5529FE5B1AC90CF4004F930B /* SQComment.m */,
+				55516A661ACB657F00B9FB57 /* SQMediaTableViewCell.h */,
+				55516A671ACB657F00B9FB57 /* SQMediaTableViewCell.m */,
+				55516A6F1ACB6F3E00B9FB57 /* SQCropBox.h */,
+				55516A701ACB6F3E00B9FB57 /* SQCropBox.m */,
+				55516A7E1ACB762800B9FB57 /* SQMediaFullScreenAnimator.h */,
+				55516A7F1ACB762800B9FB57 /* SQMediaFullScreenAnimator.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -176,6 +206,8 @@
 				68F5D3CA1A2A36F2005A754D /* NSDictionary+UrlEncoding.m */,
 				680F044B1AABB81F00A33F31 /* UIColor+Extended.h */,
 				680F044C1AABB81F00A33F31 /* UIColor+Extended.m */,
+				55516A721ACB724F00B9FB57 /* UIImage+SQImageUtilities.h */,
+				55516A731ACB724F00B9FB57 /* UIImage+SQImageUtilities.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -191,6 +223,14 @@
 				DAD7162D19A630E2009D39CB /* LoginViewController.m */,
 				68F5D3C11A28EFF7005A754D /* SQNavigationController.h */,
 				68F5D3C21A28EFF7005A754D /* SQNavigationController.m */,
+				55516A6C1ACB6E7400B9FB57 /* SQCameraViewController.h */,
+				55516A6D1ACB6E7400B9FB57 /* SQCameraViewController.m */,
+				55516A751ACB734E00B9FB57 /* SQImageLibraryViewController.h */,
+				55516A761ACB734E00B9FB57 /* SQImageLibraryViewController.m */,
+				55516A781ACB73DA00B9FB57 /* SQCropImageViewController.h */,
+				55516A791ACB73DA00B9FB57 /* SQCropImageViewController.m */,
+				55516A7B1ACB74B800B9FB57 /* SQMediaFullScreenViewController.h */,
+				55516A7C1ACB74B800B9FB57 /* SQMediaFullScreenViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -418,20 +458,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55516A7A1ACB73DA00B9FB57 /* SQCropImageViewController.m in Sources */,
+				55516A741ACB724F00B9FB57 /* UIImage+SQImageUtilities.m in Sources */,
 				5529FE4F1AC903D7004F930B /* SQMedia.m in Sources */,
 				DAD7162E19A630E2009D39CB /* LoginViewController.m in Sources */,
 				5529FE591AC90BF0004F930B /* SQCircleSpinnerView.m in Sources */,
 				5529FE521AC905C3004F930B /* SQUser.m in Sources */,
+				55516A681ACB657F00B9FB57 /* SQMediaTableViewCell.m in Sources */,
 				68F5D3CB1A2A36F2005A754D /* NSDictionary+UrlEncoding.m in Sources */,
 				DAD7160219A629BE009D39CB /* AppDelegate.m in Sources */,
+				55516A6E1ACB6E7400B9FB57 /* SQCameraViewController.m in Sources */,
+				55516A771ACB734E00B9FB57 /* SQImageLibraryViewController.m in Sources */,
+				55516A7D1ACB74B800B9FB57 /* SQMediaFullScreenViewController.m in Sources */,
 				DAD7160819A629BE009D39CB /* SQImagesTableViewController.m in Sources */,
 				680F044D1AABB81F00A33F31 /* UIColor+Extended.m in Sources */,
 				5529FE4A1AC900A8004F930B /* SQDataSource.m in Sources */,
 				68F5D3C31A28EFF7005A754D /* SQNavigationController.m in Sources */,
+				55516A801ACB762800B9FB57 /* SQMediaFullScreenAnimator.m in Sources */,
 				DAD715FE19A629BE009D39CB /* main.m in Sources */,
 				5529FE561AC90ACE004F930B /* SQLikeButton.m in Sources */,
 				DAD7160B19A629BE009D39CB /* DetailViewController.m in Sources */,
 				5529FE5C1AC90CF4004F930B /* SQComment.m in Sources */,
+				55516A711ACB6F3E00B9FB57 /* SQCropBox.m in Sources */,
 				68CF7D861AAC1E6A00595CA8 /* KeychainItemWrapper.m in Sources */,
 				68F5D3C71A28FAD7005A754D /* SQNetworking.m in Sources */,
 			);
