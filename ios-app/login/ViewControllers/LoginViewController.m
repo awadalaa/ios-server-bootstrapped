@@ -38,31 +38,31 @@
 - (void)textFieldDidBeginEditing:(UITextField *)sender{
     if ([sender isEqual:self.emailText] || [sender isEqual:self.passwordText])
     {
-        if  (self.view.frame.origin.y >= 0)
+        /*if  (self.view.frame.origin.y >= 0)
         {
             [self setViewMovedUp:YES];
         }else if (self.view.frame.origin.y < 0)
         {
             [self setViewMovedUp:NO];
-        }
+        }*/
     }
 }
 
 -(void)keyboardWillShow {
-    if (self.view.frame.origin.y >= 0)
+    /*if (self.view.frame.origin.y >= 0)
     {
-        [self setViewMovedUp:YES];
+        [self setViewMovedUp:NO];
     }
     else if (self.view.frame.origin.y < 0)
     {
         [self setViewMovedUp:NO];
-    }
+    }*/
 }
 
 -(void)keyboardWillHide {
     if (self.view.frame.origin.y >= 0)
     {
-        [self setViewMovedUp:YES];
+        [self setViewMovedUp:NO];
     }
     else if (self.view.frame.origin.y < 0)
     {
