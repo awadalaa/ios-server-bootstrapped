@@ -129,12 +129,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="BLM-1g-xkA" kind="relationship" relationship="rootViewController" id="IKm-Kz-nDy"/>
+                        <segue destination="pGg-6v-bdr" kind="relationship" relationship="rootViewController" id="Jly-nT-Xnc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-443" y="64"/>
+            <point key="canvasLocation" x="61" y="-616"/>
         </scene>
         <!--Master-->
         <scene sceneID="VgW-fR-Quf">
@@ -228,4 +228,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Jly-nT-Xnc"/>
+    </inferredMetricsTieBreakers>
 </document>
