@@ -23,6 +23,8 @@
 		55516A7D1ACB74B800B9FB57 /* SQMediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55516A7C1ACB74B800B9FB57 /* SQMediaFullScreenViewController.m */; };
 		55516A801ACB762800B9FB57 /* SQMediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55516A7F1ACB762800B9FB57 /* SQMediaFullScreenAnimator.m */; };
 		55516A991ACB7BCE00B9FB57 /* SQCameraToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 55516A981ACB7BCE00B9FB57 /* SQCameraToolbar.m */; };
+		55516A9C1ACCD8E700B9FB57 /* SQPostToServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55516A9B1ACCD8E700B9FB57 /* SQPostToServerViewController.m */; };
+		55516A9E1ACCDBBF00B9FB57 /* SQImagesTableViewController in Resources */ = {isa = PBXBuildFile; fileRef = 55516A9D1ACCDBBF00B9FB57 /* SQImagesTableViewController */; };
 		680F044D1AABB81F00A33F31 /* UIColor+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F044C1AABB81F00A33F31 /* UIColor+Extended.m */; };
 		68CF7D861AAC1E6A00595CA8 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CF7D851AAC1E6A00595CA8 /* KeychainItemWrapper.m */; };
 		68F5D3C31A28EFF7005A754D /* SQNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F5D3C21A28EFF7005A754D /* SQNavigationController.m */; };
@@ -88,6 +90,9 @@
 		55516A7F1ACB762800B9FB57 /* SQMediaFullScreenAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQMediaFullScreenAnimator.m; path = Views/SQMediaFullScreenAnimator.m; sourceTree = "<group>"; };
 		55516A971ACB7BCE00B9FB57 /* SQCameraToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQCameraToolbar.h; path = Views/SQCameraToolbar.h; sourceTree = "<group>"; };
 		55516A981ACB7BCE00B9FB57 /* SQCameraToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQCameraToolbar.m; path = Views/SQCameraToolbar.m; sourceTree = "<group>"; };
+		55516A9A1ACCD8E700B9FB57 /* SQPostToServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQPostToServerViewController.h; path = ViewControllers/SQPostToServerViewController.h; sourceTree = "<group>"; };
+		55516A9B1ACCD8E700B9FB57 /* SQPostToServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQPostToServerViewController.m; path = ViewControllers/SQPostToServerViewController.m; sourceTree = "<group>"; };
+		55516A9D1ACCDBBF00B9FB57 /* SQImagesTableViewController */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SQImagesTableViewController; path = ViewControllers/SQImagesTableViewController; sourceTree = "<group>"; };
 		680F044B1AABB81F00A33F31 /* UIColor+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Extended.h"; path = "Categories/UIColor+Extended.h"; sourceTree = "<group>"; };
 		680F044C1AABB81F00A33F31 /* UIColor+Extended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Extended.m"; path = "Categories/UIColor+Extended.m"; sourceTree = "<group>"; };
 		68CF7D811AABD02200595CA8 /* AuthenticationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthenticationDelegate.h; path = Protocols/AuthenticationDelegate.h; sourceTree = "<group>"; };
@@ -222,6 +227,7 @@
 			children = (
 				DAD7160619A629BE009D39CB /* SQImagesTableViewController.h */,
 				DAD7160719A629BE009D39CB /* SQImagesTableViewController.m */,
+				55516A9D1ACCDBBF00B9FB57 /* SQImagesTableViewController */,
 				DAD7160919A629BE009D39CB /* DetailViewController.h */,
 				DAD7160A19A629BE009D39CB /* DetailViewController.m */,
 				DAD7162C19A630E2009D39CB /* LoginViewController.h */,
@@ -236,6 +242,8 @@
 				55516A791ACB73DA00B9FB57 /* SQCropImageViewController.m */,
 				55516A7B1ACB74B800B9FB57 /* SQMediaFullScreenViewController.h */,
 				55516A7C1ACB74B800B9FB57 /* SQMediaFullScreenViewController.m */,
+				55516A9A1ACCD8E700B9FB57 /* SQPostToServerViewController.h */,
+				55516A9B1ACCD8E700B9FB57 /* SQPostToServerViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -409,6 +417,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55516A9E1ACCDBBF00B9FB57 /* SQImagesTableViewController in Resources */,
 				DAD7160D19A629BE009D39CB /* Images.xcassets in Resources */,
 				DAD715FC19A629BE009D39CB /* InfoPlist.strings in Resources */,
 				DAD7160519A629BE009D39CB /* Main.storyboard in Resources */,
@@ -465,6 +474,7 @@
 			files = (
 				55516A7A1ACB73DA00B9FB57 /* SQCropImageViewController.m in Sources */,
 				55516A741ACB724F00B9FB57 /* UIImage+SQImageUtilities.m in Sources */,
+				55516A9C1ACCD8E700B9FB57 /* SQPostToServerViewController.m in Sources */,
 				5529FE4F1AC903D7004F930B /* SQMedia.m in Sources */,
 				DAD7162E19A630E2009D39CB /* LoginViewController.m in Sources */,
 				5529FE591AC90BF0004F930B /* SQCircleSpinnerView.m in Sources */,
