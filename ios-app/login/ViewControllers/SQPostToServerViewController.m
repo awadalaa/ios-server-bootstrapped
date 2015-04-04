@@ -8,6 +8,7 @@
 
 #import "SQPostToServerViewController.h"
 #import "SQDataSource.h"
+#import "DetailViewController.h"
 
 @interface SQPostToServerViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -159,18 +160,22 @@
         }
         
         self.documentController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
-        self.documentController.UTI = @"com.instagram.exclusivegram";
+        self.documentController.UTI = @"com.technalaa.exclusivegram";
         
         self.documentController.delegate = self;
         
         NSString *caption = [alertView textFieldAtIndex:0].text;
         
         if (caption.length > 0) {
-            self.documentController.annotation = @{@"InstagramCaption": caption};
+            self.documentController.annotation = @{@"TechnalaaCaption": caption};
         }
         
         if (self.sendButton.superview) {
-            [self.documentController presentOpenInMenuFromRect:self.sendButton.bounds inView:self.sendButton animated:YES];
+            UINavigationController *navVC = self.navigationController;
+            DetailViewController *loginVC = [[DetailViewController alloc] init];
+            [navVC setViewControllers:@[loginVC] animated:YES];
+ 
+                
         } else {
             [self.documentController presentOpenInMenuFromBarButtonItem:self.sendBarButton animated:YES];
         }
