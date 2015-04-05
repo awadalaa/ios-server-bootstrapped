@@ -10,6 +10,9 @@
 #import "SQDataSource.h"
 #import "DetailViewController.h"
 
+#import "AFHTTPRequestOperation.h"
+#import "AFHTTPRequestOperationManager.h"
+
 @interface SQPostToServerViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate, UIDocumentInteractionControllerDelegate>
 
 @property (nonatomic, strong) UIImage *sourceImage;
@@ -171,15 +174,50 @@
         }
         
         if (self.sendButton.superview) {
-            UINavigationController *navVC = self.navigationController;
-            DetailViewController *loginVC = [[DetailViewController alloc] init];
-            [navVC setViewControllers:@[loginVC] animated:YES];
- 
-                
+            NSString *stringUrl =@"http://localhost:1337/api/image/";
+            NSString *filename = [self GetUUID];
+            NSURL *filePath = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@%@.jpg",stringUrl,filename]];
+
+            NSDictionary *parameters  =
+                [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"alaaawad",@"id",
+                 caption,@"caption",
+                 nil];
+
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            [manager POST:stringUrl parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+             {
+                 [formData appendPartWithFileURL:filePath name:@"userfile" error:nil];//here userfile is a paramiter for your image
+             }
+                  success:^(AFHTTPRequestOperation *operation, id responseObject)
+             {
+                 NSLog(@"SUCCESS: %@",[responseObject valueForKey:@"Root"]);
+                 /*Alert_Success_fail = [[UIAlertView alloc] initWithTitle:@"technalaa" message:string delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+                 [Alert_Success_fail show];*/
+             }
+                  failure:^(AFHTTPRequestOperation *operation, NSError *error)
+             {
+                 NSLog(@"EPIC FAIL %@",error);
+                 /*Alert_Success_fail = [[UIAlertView alloc] initWithTitle:@"myappname" message:[error localizedDescription] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+                 [Alert_Success_fail show];*/
+             }];
+
+//            UINavigationController *navVC = self.navigationController;
+//            DetailViewController *loginVC = [[DetailViewController alloc] init];
+//            [navVC setViewControllers:@[loginVC] animated:YES];
+
         } else {
             [self.documentController presentOpenInMenuFromBarButtonItem:self.sendBarButton animated:YES];
         }
     }
+}
+
+- (NSString *)GetUUID
+{
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+    CFRelease(theUUID);
+    return (__bridge NSString *)string;
 }
 
 #pragma mark - UIDocumentInteractionControllerDelegate
