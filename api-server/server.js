@@ -1,6 +1,6 @@
 var express         = require('express');
 var favicon         = require('serve-favicon');
-// var methodOverride  = require('method-override');
+var fs              = require('fs');
 var path            = require('path');
 var passport        = require('passport');
 var bodyParser      = require('body-parser');
@@ -8,7 +8,16 @@ var config          = require('./libs/config');
 var log             = require('./libs/log')(module);
 var oauth2          = require('./libs/oauth2');
 var ArticleModel    = require('./libs/mongoose').ArticleModel;
+var ImageModel      = require('./libs/mongoose').ImageModel;
+var multipart       = require('multiparty');
 var app = express();
+
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
+app.post('/upload', multipartMiddleware, function(req, resp) {
+  console.log(req.body, req.files);
+  // don't forget to delete all req.files when done
+});
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,6 +27,43 @@ app.use(passport.initialize());
 
 app.get('/api', passport.authenticate('bearer', { session: false }), function (req, res) {
     res.send('API is running');
+});
+
+
+app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ multipartMiddleware, function(req, res) {
+    log.info("here we are getting part of your imag");
+    log.debug("req.files",req.files)
+
+    fs.readFile(req.files.userfile.path, function (err, data) {
+            //here get the image name and other data parameters which you are sending like image name etc.
+        var newPath = "~/images/" + 
+        fs.writeFile(newPath, data, function (err) {
+        //dont forgot the delete the temp files.
+
+        });
+     });
+    var image = new ImageModel({
+        kind: req.body.kind,
+        url: req.body.url,
+        image: req.body.image
+    });
+
+    image.save(function (err) {
+        if (!err) {
+            log.info("image created");
+            return res.send({ status: 'OK', image:image });
+        } else {
+            console.log(err);
+            if(err.name == 'ValidationError') {
+                res.statusCode = 400;
+                res.send({ error: 'Validation error' });
+            } else {
+                res.statusCode = 500;
+                res.send({ error: 'Server error' });
+            }
+            log.error('Internal error(%d): %s',res.statusCode,err.message);
+        }
+    });
 });
 
 app.get('/api/articles', passport.authenticate('bearer', { session: false }), function(req, res) {

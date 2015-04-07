@@ -25,6 +25,7 @@ var Images = new Schema({
     },
     url: { type: String, required: true }
 });
+var ImageModel = mongoose.model('Images', Images);
 
 var Article = new Schema({
     title: { type: String, required: true },

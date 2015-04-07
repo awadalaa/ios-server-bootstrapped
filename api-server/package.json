@@ -20,7 +20,8 @@
     "passport-http-bearer": "1.0.x",
     "passport-oauth2-client-password": "0.1.x",
     "serve-favicon": "2.1.x",
-    "winston": "0.8.x"
+    "winston": "0.8.x",
+    "connect-multiparty": "latest"
   },
   "license": "MIT"
 }

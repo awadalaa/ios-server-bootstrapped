@@ -187,7 +187,7 @@
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
             [manager POST:stringUrl parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
              {
-                 [formData appendPartWithFileURL:filePath name:@"userfile" error:nil];//here userfile is a paramiter for your image
+                 [formData appendPartWithFileURL:fileURL name:@"userfile" error:nil];//here userfile is a parameter for your image
              }
                   success:^(AFHTTPRequestOperation *operation, id responseObject)
              {
