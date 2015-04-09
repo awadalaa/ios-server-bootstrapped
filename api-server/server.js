@@ -10,14 +10,18 @@ var oauth2          = require('./libs/oauth2');
 var ArticleModel    = require('./libs/mongoose').ArticleModel;
 var ImageModel      = require('./libs/mongoose').ImageModel;
 var multipart       = require('multiparty');
+var domain          = require('domain');
+var d = domain.create();
+const DEFAULT_IMAGE_TYPE = "detail";
+
+d.on('error', function(err) {
+  log.error(err);
+});
+
 var app = express();
 
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
-app.post('/upload', multipartMiddleware, function(req, resp) {
-  console.log(req.body, req.files);
-  // don't forget to delete all req.files when done
-});
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,24 +33,37 @@ app.get('/api', passport.authenticate('bearer', { session: false }), function (r
     res.send('API is running');
 });
 
+var guid = function() {
+      function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      }
+      return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
+    };
 
 app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ multipartMiddleware, function(req, res) {
     log.info("here we are getting part of your imag");
-    log.debug("req.files",req.files)
+    log.debug("req.files.userfile.originalFilename",req.files.userfile.originalFilename,req.files.userfile.path,req.files.userfile.size / 1024 | 0);
+    var uuid = guid();
+    var newPath = "image/" + String(uuid) + ".jpg"
 
     fs.readFile(req.files.userfile.path, function (err, data) {
-            //here get the image name and other data parameters which you are sending like image name etc.
-        var newPath = "~/images/" + 
+        //here get the image name and other data parameters which you are sending like image name etc.
         fs.writeFile(newPath, data, function (err) {
-        //dont forgot the delete the temp files.
-
+            if(err) log.error("FOUND ERR",err);
         });
      });
+
     var image = new ImageModel({
-        kind: req.body.kind,
-        url: req.body.url,
-        image: req.body.image
+        kind: DEFAULT_IMAGE_TYPE,
+        caption: req.body.caption,
+        location: newPath,
+        username: req.body.username
     });
+
+    
 
     image.save(function (err) {
         if (!err) {

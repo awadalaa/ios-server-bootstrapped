@@ -23,7 +23,10 @@ var Images = new Schema({
         enum: ['thumbnail', 'detail'],
         required: true
     },
-    url: { type: String, required: true }
+    location: { type: String, required: true },
+    caption:  { type: String, required: true },
+    user_id:  { type: Schema.ObjectId, ref: 'User' },
+    username: { type: String }
 });
 var ImageModel = mongoose.model('Images', Images);
 
@@ -161,6 +164,7 @@ var RefreshTokenModel = mongoose.model('RefreshToken', RefreshToken);
 module.exports.mongoose = mongoose;
 module.exports.ArticleModel = ArticleModel;
 module.exports.UserModel = UserModel;
+module.exports.ImageModel = ImageModel;
 module.exports.ClientModel = ClientModel;
 module.exports.AccessTokenModel = AccessTokenModel;
 module.exports.RefreshTokenModel = RefreshTokenModel;
