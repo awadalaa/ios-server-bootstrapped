@@ -19,7 +19,7 @@
 @end
 
 @implementation LoginViewController
-
+NSString *const SQLoginViewControllerDidGetAccessTokenNotification = @"BLCLoginViewControllerDidGetAccessTokenNotification";
 #define kOFFSET_FOR_KEYBOARD 80.0
 
 -(void)viewDidLoad{
@@ -153,12 +153,15 @@
         [indicatorView stopAnimating];
         [indicatorView removeFromSuperview];
         NSLog(@"response:%@",response);
+        NSString *accesstoken;
         if (response!=nil){
             if ([response objectForKey:@"error"]){
                 [self loginError];
             }else{
                 KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] init];
                 [keychain setKeychainData:response];
+                NSLog(@"access notification %@",response[@"access_token"]);
+                [[NSNotificationCenter defaultCenter] postNotificationName:SQLoginViewControllerDidGetAccessTokenNotification object:response[@"access_token"]];
                 [self performSegueWithIdentifier:@"loginSuccessSegue" sender:self];
             }
         }else{

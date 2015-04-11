@@ -83,6 +83,20 @@ app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ 
     });
 });
 
+app.get('/api/feed', function(req, res) {
+    log.info("here we are in api feed");
+    ImageModel.find({username: 'alaaawad'},function (err, images) {
+        if (!err) {
+            log.info("images yea",images);
+            return res.send({images:images});
+        } else {
+            res.statusCode = 500;
+            log.error('Internal error(%d): %s',res.statusCode,err.message);
+            return res.send({ error: 'Server error' });
+        }
+    });
+});
+
 app.get('/api/articles', passport.authenticate('bearer', { session: false }), function(req, res) {
     return ArticleModel.find(function (err, articles) {
         if (!err) {

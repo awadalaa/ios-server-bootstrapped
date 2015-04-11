@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SQImagesTableViewController.h"
 
 @implementation AppDelegate
 
@@ -14,6 +15,11 @@
 {
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
+        [[NSNotificationCenter defaultCenter] addObserverForName:@"SQLoginViewControllerDidGetAccessTokenNotification" object:nil queue:nil usingBlock:^(NSNotification *note) {
+//            SQImagesTableViewController *imagesVC = [[SQImagesTableViewController alloc] init];
+//            [navVC setViewControllers:@[imagesVC] animated:YES];
+
+        }];
     return YES;
 }
 							

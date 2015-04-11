@@ -15,8 +15,8 @@
     NSMutableDictionary        *genericPasswordQuery;
 }
 
-@property (nonatomic, strong) NSMutableDictionary *keychainData;
-@property (nonatomic, strong) NSMutableDictionary *genericPasswordQuery;
+@property (nonatomic, strong) NSDictionary *keychainData;
+@property (nonatomic, strong) NSDictionary *genericPasswordQuery;
 
 - (void)mySetObject:(id)inObject forKey:(id)key;
 - (id)myObjectForKey:(id)key;

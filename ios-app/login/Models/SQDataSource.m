@@ -51,7 +51,7 @@ NSString *const SQImageFinishedNotification = @"SQImageFinishedNotification";
     self = [super init];
     
     if (self) {
-        NSURL *baseURL = [NSURL URLWithString:@"http://localhost:1337/oauth/token"];
+        NSURL *baseURL = [NSURL URLWithString:@"http://localhost:1337/"];
         self.SQOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
         
         AFJSONResponseSerializer *jsonSerializer = [AFJSONResponseSerializer serializer];
@@ -64,9 +64,9 @@ NSString *const SQImageFinishedNotification = @"SQImageFinishedNotification";
         
         self.accessToken = [UICKeyChainStore stringForKey:@"access token"];
         
-        if (!self.accessToken) {
-            [self registerForAccessTokenNotification];
-        } else {
+//        if (!self.accessToken) {
+//            [self registerForAccessTokenNotification];
+//        } else {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 NSString *fullPath = [self pathForFilename:NSStringFromSelector(@selector(mediaItems))];
                 NSArray *storedMediaItems = [NSKeyedUnarchiver unarchiveObjectWithFile:fullPath];
@@ -84,7 +84,7 @@ NSString *const SQImageFinishedNotification = @"SQImageFinishedNotification";
                 });
             });
         }
-    }
+//    }
     
     return self;
 }
@@ -176,17 +176,18 @@ NSString *const SQImageFinishedNotification = @"SQImageFinishedNotification";
 }
 
 - (void) populateDataWithParameters:(NSDictionary *)parameters completionHandler:(SQNewItemCompletionBlock)completionHandler {
-    if (self.accessToken) {
+        // if (self.accessToken) {
         // only try to get the data if there's an access token
         
-        NSMutableDictionary *mutableParameters = [@{@"access_token": self.accessToken} mutableCopy];
-        
+        //NSMutableDictionary *mutableParameters = [@{@"access_token": self.accessToken} mutableCopy];
+    NSMutableDictionary *mutableParameters = nil;
         [mutableParameters addEntriesFromDictionary:parameters];
         
-        [self.SQOperationManager GET:@"users/self/feed"
+        [self.SQOperationManager GET:@"/api/feed"
                                  parameters:mutableParameters
                                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                         if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                                            NSLog(@"%@",responseObject);
                                             [self parseDataFromFeedDictionary:responseObject fromRequestWithParameters:parameters];
                                             
                                             if (completionHandler) {
@@ -195,12 +196,12 @@ NSString *const SQImageFinishedNotification = @"SQImageFinishedNotification";
                                         }
                                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                         [self invalidateAccessTokenIf400:operation];
-                                        
+                                        NSLog(@"error",error.description);
                                         if (completionHandler) {
                                             completionHandler(error);
                                         }
                                     }];
-    }
+//      }
 }
 
 - (void) parseDataFromFeedDictionary:(NSDictionary *) feedDictionary fromRequestWithParameters:(NSDictionary *)parameters {

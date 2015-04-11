@@ -9,6 +9,7 @@
 #import "SQPostToServerViewController.h"
 #import "SQDataSource.h"
 #import "DetailViewController.h"
+#import "SQImagesTableViewController.h"
 
 #import "AFHTTPRequestOperation.h"
 #import "AFHTTPRequestOperationManager.h"
@@ -187,8 +188,8 @@
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
             [manager POST:stringUrl parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
              {
-//                 [formData appendPartWithFormData:imagedata name:@"image"];
-                [formData appendPartWithFileURL:fileURL name:@"userfile" error:nil];//here userfile is a parameter for your image
+                //here userfile is a parameter for your image
+                [formData appendPartWithFileURL:fileURL name:@"userfile" error:nil];
              }
                   success:^(AFHTTPRequestOperation *operation, id responseObject)
              {
@@ -203,9 +204,9 @@
                  [Alert_Success_fail show];*/
              }];
 
-//            UINavigationController *navVC = self.navigationController;
-//            DetailViewController *loginVC = [[DetailViewController alloc] init];
-//            [navVC setViewControllers:@[loginVC] animated:YES];
+            UINavigationController *navVC = self.navigationController;
+            SQImagesTableViewController *detailVC = [[SQImagesTableViewController alloc] init];
+            [navVC setViewControllers:@[detailVC] animated:YES];
 
         } else {
             [self.documentController presentOpenInMenuFromBarButtonItem:self.sendBarButton animated:YES];
