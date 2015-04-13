@@ -16,9 +16,9 @@
     self = [super init];
     
     if (self) {
-        self.idNumber = mediaDictionary[@"id"];
-        self.user = [[SQUser alloc] initWithDictionary:mediaDictionary[@"user"]];
-        NSString *standardResolutionImageURLString = mediaDictionary[@"images"][@"standard_resolution"][@"url"];
+        self.idNumber = mediaDictionary[@"_id"];
+        self.user = [[SQUser alloc] initWithDictionary:mediaDictionary[@"username"]];
+        NSString *standardResolutionImageURLString = mediaDictionary[@"location"];
         NSURL *standardResolutionImageURL = [NSURL URLWithString:standardResolutionImageURLString];
         
         if (standardResolutionImageURL) {
@@ -28,14 +28,7 @@
             self.downloadState = SQMediaDownloadStateNonRecoverableError;
         }
         
-        NSDictionary *captionDictionary = mediaDictionary[@"caption"];
-        
-        // Caption might be null (if there's no caption)
-        if ([captionDictionary isKindOfClass:[NSDictionary class]]) {
-            self.caption = captionDictionary[@"text"];
-        } else {
-            self.caption = @"";
-        }
+        self.caption = mediaDictionary[@"caption"];
         
         NSMutableArray *commentsArray = [NSMutableArray array];
         

@@ -27,7 +27,7 @@
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
 
-@property (nonatomic, strong) SQLikeButton *likeButton;
+//@property (nonatomic, strong) SQLikeButton *likeButton;
 //@property (nonatomic, strong) SQComposeCommentView *commentView;
 
 @end
@@ -70,7 +70,7 @@ static NSParagraphStyle *paragraphStyle;
     [layoutCell layoutIfNeeded];
     
     // Get the actual height required for the cell
-    return CGRectGetMaxY(layoutCell/*.commentView*/.frame);
+    return CGRectGetMaxY(layoutCell.usernameAndCaptionLabel.frame);
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -91,19 +91,19 @@ static NSParagraphStyle *paragraphStyle;
         self.usernameAndCaptionLabel = [[UILabel alloc] init];
         self.usernameAndCaptionLabel.numberOfLines = 0;
         self.usernameAndCaptionLabel.backgroundColor = usernameLabelGray;
-        
-        self.commentLabel = [[UILabel alloc] init];
-        self.commentLabel.numberOfLines = 0;
-        self.commentLabel.backgroundColor = commentLabelGray;
-        
-        self.likeButton = [[SQLikeButton alloc] init];
-        [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
-        self.likeButton.backgroundColor = usernameLabelGray;
+//        
+//        self.commentLabel = [[UILabel alloc] init];
+//        self.commentLabel.numberOfLines = 0;
+//        self.commentLabel.backgroundColor = commentLabelGray;
+//        
+//        self.likeButton = [[SQLikeButton alloc] init];
+//        [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
+//        self.likeButton.backgroundColor = usernameLabelGray;
         
         //self.commentView = [[SQComposeCommentView alloc] init];
         //self.commentView.delegate = self;
         
-        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.likeButton/*, self.commentView*/]) {
+        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, /*self.commentLabel, self.likeButton, self.commentView*/]) {
             [self.contentView addSubview:view];
             view.translatesAutoresizingMaskIntoConstraints = NO;
         }
@@ -124,7 +124,7 @@ static NSParagraphStyle *paragraphStyle;
 }
 
 - (void) createPadConstraints {
-    NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel, _likeButton/*, _commentView*/);
+    NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel); /*_commentLabel, _likeButton, _commentView*/
     
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_mediaImageView(==320)]" options:kNilOptions metrics:nil views:viewDictionary]];
     [self.contentView addConstraint: [NSLayoutConstraint constraintWithItem:self.contentView
@@ -138,22 +138,22 @@ static NSParagraphStyle *paragraphStyle;
 }
 
 - (void) createPhoneConstraints {
-    NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel, _likeButton/*, _commentView*/);
+    NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel/*, _commentLabel, _likeButton, _commentView*/);
     
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mediaImageView]|" options:kNilOptions metrics:nil views:viewDictionary]];
 }
 
 - (void) createCommonConstraints {
-    NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel, _likeButton/*, _commentView*/);
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel][_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:viewDictionary]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentView]|" options:kNilOptions metrics:nil views:viewDictionary]];
+    NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel/*, _commentLabel, _likeButton, _commentView*/);
+    //@"H:|[_usernameAndCaptionLabel][_likeButton(==38)]|"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:viewDictionary]];
+//    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
+//    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentView]|" options:kNilOptions metrics:nil views:viewDictionary]];
     
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_mediaImageView][_usernameAndCaptionLabel][_commentLabel][_commentView(==100)]"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_mediaImageView][_usernameAndCaptionLabel]"/*[_commentLabel(==100)][_commentView(==100)]*/
                                                                              options:kNilOptions
                                                                              metrics:nil
                                                                                views:viewDictionary]];
-    
     self.imageHeightConstraint = [NSLayoutConstraint constraintWithItem:_mediaImageView
                                                               attribute:NSLayoutAttributeHeight
                                                               relatedBy:NSLayoutRelationEqual
@@ -171,15 +171,15 @@ static NSParagraphStyle *paragraphStyle;
                                                                                multiplier:1
                                                                                  constant:100];
     
-    self.commentLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_commentLabel
+/*    self.commentLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_commentLabel
                                                                      attribute:NSLayoutAttributeHeight
                                                                      relatedBy:NSLayoutRelationEqual
                                                                         toItem:nil
                                                                      attribute:NSLayoutAttributeNotAnAttribute
                                                                     multiplier:1
                                                                       constant:100];
-    
-    [self.contentView addConstraints:@[self.imageHeightConstraint, self.usernameAndCaptionLabelHeightConstraint, self.commentLabelHeightConstraint]];
+  */
+    [self.contentView addConstraints:@[self.imageHeightConstraint, self.usernameAndCaptionLabelHeightConstraint/*, self.commentLabelHeightConstraint*/]];
 }
 
 - (void)awakeFromNib
@@ -204,10 +204,10 @@ static NSParagraphStyle *paragraphStyle;
     // Before layout, calculate the intrinsic size of the labels (the size they "want" to be), and add 20 to the height for some vertical padding.
     CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds), CGFLOAT_MAX);
     CGSize usernameLabelSize = [self.usernameAndCaptionLabel sizeThatFits:maxSize];
-    CGSize commentLabelSize = [self.commentLabel sizeThatFits:maxSize];
+//    CGSize commentLabelSize = [self.commentLabel sizeThatFits:maxSize];
     
     self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height + 20;
-    self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
+//    self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
     
     if (_mediaItem.image) {
         if (isPhone) {
@@ -227,8 +227,8 @@ static NSParagraphStyle *paragraphStyle;
     _mediaItem = mediaItem;
     self.mediaImageView.image = _mediaItem.image;
     self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
-    self.commentLabel.attributedText = [self commentString];
-    self.likeButton.likeButtonState = mediaItem.likeState;
+//    self.commentLabel.attributedText = [self commentString];
+//    self.likeButton.likeButtonState = mediaItem.likeState;
 //    self.commentView.text = mediaItem.temporaryComment;
 }
 

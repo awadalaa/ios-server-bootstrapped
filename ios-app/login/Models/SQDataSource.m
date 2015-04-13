@@ -187,7 +187,6 @@ NSString *const SQImageFinishedNotification = @"SQImageFinishedNotification";
                                  parameters:mutableParameters
                                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                         if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                                            NSLog(@"%@",responseObject);
                                             [self parseDataFromFeedDictionary:responseObject fromRequestWithParameters:parameters];
                                             
                                             if (completionHandler) {
@@ -196,7 +195,6 @@ NSString *const SQImageFinishedNotification = @"SQImageFinishedNotification";
                                         }
                                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                         [self invalidateAccessTokenIf400:operation];
-                                        NSLog(@"error",error.description);
                                         if (completionHandler) {
                                             completionHandler(error);
                                         }
@@ -214,7 +212,7 @@ NSString *const SQImageFinishedNotification = @"SQImageFinishedNotification";
         
         if (mediaItem) {
             [tmpMediaItems addObject:mediaItem];
-            //            [self downloadImageForMediaItem:mediaItem];
+            [self downloadImageForMediaItem:mediaItem];
         }
     }
     
@@ -282,7 +280,6 @@ NSString *const SQImageFinishedNotification = @"SQImageFinishedNotification";
                                         }
                                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                         NSLog(@"Error downloading image: %@", error);
-                                        
                                         
                                         mediaItem.downloadState = SQMediaDownloadStateNonRecoverableError;
                                         
@@ -371,7 +368,6 @@ NSString *const SQImageFinishedNotification = @"SQImageFinishedNotification";
             [self reloadMediaItem:mediaItem];
         }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
         NSLog(@"Response: %@", operation.responseString);
         [self reloadMediaItem:mediaItem];
     }];

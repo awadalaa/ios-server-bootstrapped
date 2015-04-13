@@ -30,6 +30,6 @@
 
 + (CGFloat) heightForMediaItem:(SQMedia *)mediaItem width:(CGFloat)width;
 
-- (void) stopComposingComment;
+//- (void) stopComposingComment;
 
 @end

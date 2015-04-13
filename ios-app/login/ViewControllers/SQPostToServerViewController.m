@@ -176,8 +176,6 @@
         
         if (self.sendButton.superview) {
             NSString *stringUrl =@"http://localhost:1337/api/image/";
-            NSString *filename = [self GetUUID];
-            NSURL *filePath = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@%@.jpg",stringUrl,filename]];
 
             NSDictionary *parameters  =
                 [NSDictionary dictionaryWithObjectsAndKeys:
@@ -193,15 +191,13 @@
              }
                   success:^(AFHTTPRequestOperation *operation, id responseObject)
              {
-                 NSLog(@"SUCCESS: %@",[responseObject valueForKey:@"Root"]);
-                 /*Alert_Success_fail = [[UIAlertView alloc] initWithTitle:@"technalaa" message:string delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-                 [Alert_Success_fail show];*/
+                 UIAlertView *Alert_Success_fail = [[UIAlertView alloc] initWithTitle:@"technalaa" message:@"Success!" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+                 [Alert_Success_fail show];
              }
                   failure:^(AFHTTPRequestOperation *operation, NSError *error)
              {
-                 NSLog(@"EPIC FAIL %@",error);
-                 /*Alert_Success_fail = [[UIAlertView alloc] initWithTitle:@"myappname" message:[error localizedDescription] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-                 [Alert_Success_fail show];*/
+                 UIAlertView *Alert_Success_fail = [[UIAlertView alloc] initWithTitle:@"technalaa" message:[error localizedDescription] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+                 [Alert_Success_fail show];
              }];
 
             UINavigationController *navVC = self.navigationController;

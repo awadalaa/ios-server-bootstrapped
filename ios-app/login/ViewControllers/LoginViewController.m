@@ -152,8 +152,6 @@ NSString *const SQLoginViewControllerDidGetAccessTokenNotification = @"BLCLoginV
     [SQNetworking makeRequestToEndPoint:@"/oauth/token" values:params onCompletion:^(NSDictionary *response,NSError *error){
         [indicatorView stopAnimating];
         [indicatorView removeFromSuperview];
-        NSLog(@"response:%@",response);
-        NSString *accesstoken;
         if (response!=nil){
             if ([response objectForKey:@"error"]){
                 [self loginError];

@@ -12,7 +12,7 @@
 #import "SQDataSource.h"
 #import "SQMedia.h"
 #import "SQUser.h"
-//#import "SQComment.h"
+#import "SQComment.h"
 #import "SQMediaTableViewCell.h"
 #import "SQMediaFullScreenViewController.h"
 #import "SQMediaFullScreenAnimator.h"
@@ -165,11 +165,11 @@
     cell.mediaItem = [SQDataSource sharedInstance].mediaItems[indexPath.row];
     return cell;
 }
-
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SQMediaTableViewCell *cell = (SQMediaTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [cell stopComposingComment];
-}
+//
+//- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    SQMediaTableViewCell *cell = (SQMediaTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+//    [cell stopComposingComment];
+//}
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     SQMedia *mediaItem = [SQDataSource sharedInstance].mediaItems[indexPath.row];
@@ -299,7 +299,7 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self infiniteScrollIfNeccessary];
+    //[self infiniteScrollIfNeccessary];
 }
 
 #pragma mark - SQMediaTableViewCellDelegate
@@ -357,13 +357,13 @@
     SQMediaFullScreenAnimator *animator = [SQMediaFullScreenAnimator new];
     animator.presenting = YES;
     animator.cellImageView = self.lastTappedImageView;
-    return animator;
+    return (id<UIViewControllerAnimatedTransitioning>)animator;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
     SQMediaFullScreenAnimator *animator = [SQMediaFullScreenAnimator new];
     animator.cellImageView = self.lastTappedImageView;
-    return animator;
+    return (id<UIViewControllerAnimatedTransitioning>)animator;
 }
 
 #pragma mark - Popover Handling

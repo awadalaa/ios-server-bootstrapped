@@ -21,9 +21,8 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: url];
     request.HTTPMethod = @"POST";
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    //[request setValue:@"charset" forHTTPHeaderField:@"utf-8"];
+    [request setValue:@"charset" forHTTPHeaderField:@"utf-8"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    NSLog(@"%@",[params toJsonString]);
     request.HTTPBody = [[params toJsonString] dataUsingEncoding:NSUTF8StringEncoding];
     
     [NSURLConnection sendAsynchronousRequest:request
