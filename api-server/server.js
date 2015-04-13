@@ -47,7 +47,8 @@ app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ 
     log.info("here we are getting part of your imag");
     log.debug("req.files.userfile.originalFilename",req.files.userfile.originalFilename,req.files.userfile.path,req.files.userfile.size / 1024 | 0);
     var uuid = guid();
-    var newPath = "image/" + String(uuid) + ".jpg"
+    var newPath = "public/image/" + String(uuid) + ".jpg"
+    var virtualPath = "image/" + String(uuid) + ".jpg"
 
     fs.readFile(req.files.userfile.path, function (err, data) {
         //here get the image name and other data parameters which you are sending like image name etc.
@@ -59,7 +60,7 @@ app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ 
     var image = new ImageModel({
         kind: DEFAULT_IMAGE_TYPE,
         caption: req.body.caption,
-        location: newPath,
+        location: virtualPath,
         username: req.body.username
     });
 
@@ -85,10 +86,10 @@ app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ 
 
 app.get('/api/feed', function(req, res) {
     log.info("here we are in api feed");
-    ImageModel.find({username: 'alaaawad'},function (err, images) {
+    ImageModel.find({},function (err, images) {
         if (!err) {
             log.info("images yea",images);
-            return res.send({images:images});
+            return res.send({data:images});
         } else {
             res.statusCode = 500;
             log.error('Internal error(%d): %s',res.statusCode,err.message);
