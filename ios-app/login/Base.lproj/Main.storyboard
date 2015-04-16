@@ -9,7 +9,7 @@
         <!--Login View Controller-->
         <scene sceneID="Bpp-oW-Pdf">
             <objects>
-                <viewController id="BLM-1g-xkA" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginStoryboard" id="BLM-1g-xkA" customClass="SQLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GoB-et-ein"/>
                         <viewControllerLayoutGuide type="bottom" id="Vci-PN-034"/>
@@ -231,6 +231,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="gHM-BZ-A1V"/>
+        <segue reference="rx5-Mc-3Fg"/>
     </inferredMetricsTieBreakers>
 </document>

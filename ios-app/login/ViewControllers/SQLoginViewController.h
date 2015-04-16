@@ -11,8 +11,8 @@
 
 @protocol AuthenticationDelegate;
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate,AuthenticationDelegate>
-//extern NSString *const SQLoginViewControllerDidGetAccessTokenNotification;
+@interface SQLoginViewController : UIViewController <UITextFieldDelegate,AuthenticationDelegate>
+extern NSString *const SQLoginViewControllerDidGetAccessTokenNotification;
 @property (nonatomic, weak) id<AuthenticationDelegate> authenticationDelegate;
 
 @end

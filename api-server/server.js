@@ -88,7 +88,6 @@ app.get('/api/feed', function(req, res) {
     log.info("here we are in api feed");
     ImageModel.find({},function (err, images) {
         if (!err) {
-            log.info("images yea",images);
             return res.send({data:images});
         } else {
             res.statusCode = 500;

@@ -6,21 +6,21 @@
 //  Copyright (c) 2014 Technalaa. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "SQLoginViewController.h"
 #import "SQNetworking.h"
 #import "KeychainItemWrapper.h"
 
-@interface LoginViewController()
+@interface SQLoginViewController()
 @property (weak, nonatomic) IBOutlet UITextField *emailText;
 @property (weak, nonatomic) IBOutlet UITextField *passwordText;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 - (IBAction)login:(id)sender;
-
 @end
 
-@implementation LoginViewController
-NSString *const SQLoginViewControllerDidGetAccessTokenNotification = @"BLCLoginViewControllerDidGetAccessTokenNotification";
+@implementation SQLoginViewController
+NSString *const SQLoginViewControllerDidGetAccessTokenNotification = @"SQLoginViewControllerDidGetAccessTokenNotification";
 #define kOFFSET_FOR_KEYBOARD 80.0
+
 
 -(void)viewDidLoad{
     [super viewDidLoad];

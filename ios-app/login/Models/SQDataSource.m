@@ -10,7 +10,7 @@
 #import "SQUser.h"
 #import "SQMedia.h"
 //#import "SQComment.h"
-#import "LoginViewController.h"
+#import "SQLoginViewController.h"
 #import <UICKeyChainStore.h>
 #import <AFNetworking/AFNetworking.h>
 

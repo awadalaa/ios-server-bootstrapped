@@ -247,8 +247,7 @@
             // Someone set a brand new images array
             [self.tableView reloadData];
         } else if (kindOfChange == NSKeyValueChangeInsertion ||
-                   kindOfChange == NSKeyValueChangeRemoval ||
-                   kindOfChange == NSKeyValueChangeReplacement) {
+                   kindOfChange == NSKeyValueChangeRemoval) {
             // We have an incremental change: inserted, deleted, or replaced images
             
             // Get a list of the index (or indices) that changed
@@ -275,6 +274,8 @@
             
             // Tell the table view that we're done telling it about changes, and to complete the animation
             [self.tableView endUpdates];
+        } else { // kindOfChange == NSKeyValueChangeReplacement
+            // dont do anything :)
         }
     }
 }
