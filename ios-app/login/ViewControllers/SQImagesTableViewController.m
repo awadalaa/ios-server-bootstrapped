@@ -78,6 +78,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.title = @"feed";
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
     if (indexPath) {
         [self.tableView deselectRowAtIndexPath:indexPath animated:animated];

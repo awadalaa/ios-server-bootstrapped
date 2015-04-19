@@ -42,6 +42,10 @@
     [self configureView];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    self.navigationController.title = @"detail";
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

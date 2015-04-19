@@ -7,13 +7,16 @@
 //
 
 #import "SQLoginViewController.h"
+#import "SQImagesTableViewController.h"
 #import "SQNetworking.h"
 #import "KeychainItemWrapper.h"
 
 @interface SQLoginViewController()
-@property (weak, nonatomic) IBOutlet UITextField *emailText;
-@property (weak, nonatomic) IBOutlet UITextField *passwordText;
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (strong, nonatomic) UIView *textContainer;
+@property (strong, nonatomic) UITextField *emailText;
+@property (strong, nonatomic) UITextField *passwordText;
+@property (strong, nonatomic) UILabel *divider;
+@property (strong, nonatomic) UIButton *loginButton;
 - (IBAction)login:(id)sender;
 @end
 
@@ -24,9 +27,62 @@ NSString *const SQLoginViewControllerDidGetAccessTokenNotification = @"SQLoginVi
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    self.textContainer = [[UIView alloc] initWithFrame:CGRectMake(21, 140, 280, 112)];
+    [self.textContainer setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+
+    self.emailText = [[UITextField alloc] initWithFrame:CGRectMake(20, 14, 240, 30)];
+    self.emailText.placeholder = @"email";
+    self.emailText.borderStyle = UITextBorderStyleNone;
+    self.emailText.font = [UIFont systemFontOfSize:14];
+    self.emailText.minimumFontSize = 17.0;
+    //[self.emailText sizeToFit];
+    self.emailText.textAlignment = NSTextAlignmentLeft;
+    self.emailText.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.emailText.keyboardType = UIKeyboardTypeDefault;
+    self.emailText.returnKeyType = UIReturnKeyDone;
+    self.emailText.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.emailText.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    [self.emailText setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     self.emailText.delegate = self;
+
+    self.divider = [[UILabel alloc] initWithFrame:CGRectMake(0, 55, 280, 1)];
+    [self.divider setBackgroundColor:[UIColor lightGrayColor]];
+
+
+    self.passwordText = [[UITextField alloc] initWithFrame:CGRectMake(20, 72, 240, 30)];
+    self.passwordText.placeholder = @"password";
+    self.passwordText.borderStyle = UITextBorderStyleNone;
+    self.passwordText.font = [UIFont systemFontOfSize:14];
+    self.passwordText.minimumFontSize = 17.0;
+    self.passwordText.textAlignment = NSTextAlignmentLeft;
+    //[self.passwordText sizeToFit];
+    self.passwordText.keyboardType = UIKeyboardTypeDefault;
+    self.passwordText.returnKeyType = UIReturnKeyDone;
+    self.passwordText.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.passwordText.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    self.passwordText.secureTextEntry = YES;
+    self.passwordText.enablesReturnKeyAutomatically = YES;
+    [self.passwordText setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     self.passwordText.delegate = self;
-    self.authenticationDelegate = self;
+
+    self.loginButton = [[UIButton alloc] initWithFrame:CGRectMake(21, 260, 280, 60)];
+    [self.loginButton setTintColor:[UIColor whiteColor]];
+    [self.loginButton setBackgroundColor:[UIColor colorWithRed:0.345 green:0.318 blue:0.424 alpha:1]]; /*#58516c*/
+    [self.loginButton setTitle:@"LOGIN" forState:UIControlStateNormal];
+    [self.loginButton addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
+
+    UIView* view = [[UIView alloc] initWithFrame:self.view.frame];
+
+    [self.textContainer addSubview:self.emailText];
+    [self.textContainer addSubview:self.passwordText];
+    [self.textContainer addSubview:self.divider];
+    [self.textContainer addSubview:self.loginButton];
+    [view addSubview:self.textContainer];
+    [view addSubview:self.loginButton];
+
+    [self.view addSubview:view];
+
+    //self.authenticationDelegate = self;
 }
 
 
@@ -36,27 +92,27 @@ NSString *const SQLoginViewControllerDidGetAccessTokenNotification = @"SQLoginVi
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)sender{
-    if ([sender isEqual:self.emailText] || [sender isEqual:self.passwordText])
+    /*if ([sender isEqual:self.emailText] || [sender isEqual:self.passwordText])
     {
-        /*if  (self.view.frame.origin.y >= 0)
+        if  (self.view.frame.origin.y >= 0)
         {
             [self setViewMovedUp:YES];
         }else if (self.view.frame.origin.y < 0)
         {
             [self setViewMovedUp:NO];
-        }*/
-    }
+        }
+    }*/
 }
-
+/*
 -(void)keyboardWillShow {
-    /*if (self.view.frame.origin.y >= 0)
+    if (self.view.frame.origin.y >= 0)
     {
         [self setViewMovedUp:NO];
     }
     else if (self.view.frame.origin.y < 0)
     {
         [self setViewMovedUp:NO];
-    }*/
+    }
 }
 
 -(void)keyboardWillHide {
@@ -68,14 +124,14 @@ NSString *const SQLoginViewControllerDidGetAccessTokenNotification = @"SQLoginVi
     {
         [self setViewMovedUp:NO];
     }
-}
+}*/
 
 
 -(void)setViewMovedUp:(BOOL)movedUp
 {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3]; // if you want to slide up the view
-    
+
     CGRect rect = self.view.frame;
     if (movedUp)
     {
@@ -91,7 +147,7 @@ NSString *const SQLoginViewControllerDidGetAccessTokenNotification = @"SQLoginVi
         rect.size.height -= kOFFSET_FOR_KEYBOARD;
     }
     self.view.frame = rect;
-    
+
     [UIView commitAnimations];
 }
 
@@ -101,37 +157,37 @@ NSString *const SQLoginViewControllerDidGetAccessTokenNotification = @"SQLoginVi
     [super viewWillAppear:animated];
     // Set focus to the email text view
     [self.emailText becomeFirstResponder];
-    [[NSNotificationCenter defaultCenter] addObserver:self
+    /*[[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow)
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide)
                                                  name:UIKeyboardWillHideNotification
-                                               object:nil];
+                                               object:nil];*/
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     // unregister for keyboard notifications while not visible.
-    [[NSNotificationCenter defaultCenter] removeObserver:self
+    /*[[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIKeyboardWillShowNotification
                                                   object:nil];
-    
+
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIKeyboardWillHideNotification
-                                                  object:nil];
+                                                  object:nil];*/
 }
 
-- (IBAction)exitToLogin:(UIStoryboardSegue *)segue
+- (void) loginSuccessful
 {
-    // Add logic to log user out
+    // segue happens with access token notification
     self.emailText.text = self.passwordText.text = nil;
 }
 
-- (IBAction)login:(id)sender
+- (void)login:(id)sender
 {
     if (self.emailText.text.length != 0 &&
         self.passwordText.text.length != 0) {
@@ -160,15 +216,15 @@ NSString *const SQLoginViewControllerDidGetAccessTokenNotification = @"SQLoginVi
                 [keychain setKeychainData:response];
                 NSLog(@"access notification %@",response[@"access_token"]);
                 [[NSNotificationCenter defaultCenter] postNotificationName:SQLoginViewControllerDidGetAccessTokenNotification object:response[@"access_token"]];
-                [self performSegueWithIdentifier:@"loginSuccessSegue" sender:self];
+                [self loginSuccessful];
             }
         }else{
             [self loginError];
         }
 
     }];
-    
-    
+
+
 }
 
 
@@ -181,7 +237,7 @@ NSString *const SQLoginViewControllerDidGetAccessTokenNotification = @"SQLoginVi
      cancelButtonTitle:nil
      otherButtonTitles:nil];
     [alert show];
-    
+
     // Hide the alert
     double delayInSeconds = 2;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);

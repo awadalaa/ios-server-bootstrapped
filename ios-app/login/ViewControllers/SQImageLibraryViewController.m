@@ -70,7 +70,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    self.navigationController.title = @"image";
     [self.groups removeAllObjects];
     [self.arraysOfAssets removeAllObjects];
     
