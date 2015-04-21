@@ -180,8 +180,7 @@ NSString *const SQImageFinishedNotification = @"SQImageFinishedNotification";
         // only try to get the data if there's an access token
         
         //NSMutableDictionary *mutableParameters = [@{@"access_token": self.accessToken} mutableCopy];
-    NSMutableDictionary *mutableParameters = nil;
-        [mutableParameters addEntriesFromDictionary:parameters];
+    NSMutableDictionary *mutableParameters = [[NSMutableDictionary alloc] initWithDictionary:[parameters mutableCopy]];
         
         [self.SQOperationManager GET:@"/api/feed"
                                  parameters:mutableParameters
