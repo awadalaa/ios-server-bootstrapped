@@ -26,7 +26,9 @@ var Images = new Schema({
     location: { type: String, required: true },
     caption:  { type: String, required: true },
     user_id:  { type: Schema.ObjectId, ref: 'User' },
-    username: { type: String }
+    username: { type: String },
+    created: { type : Date, default: Date.now },
+    updated: { type : Date }
 });
 var ImageModel = mongoose.model('Images', Images);
 
