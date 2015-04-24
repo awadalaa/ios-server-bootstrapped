@@ -33,6 +33,8 @@ typedef NS_ENUM(NSInteger, SQMediaDownloadState) {
 
 @property (nonatomic, strong) NSArray *comments;
 
+@property (nonatomic, strong) NSString *created;
+
 @property (nonatomic, assign) SQLikeState likeState;
 
 @property (nonatomic, strong) NSString *temporaryComment;

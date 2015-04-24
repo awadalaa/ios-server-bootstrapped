@@ -85,16 +85,23 @@ app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ 
 });
 
 app.get('/api/feed', function(req, res) {
-    log.info("here we are in api feed");
-    ImageModel.find({},function (err, images) {
-        if (!err) {
-            return res.send({data:images});
-        } else {
-            res.statusCode = 500;
-            log.error('Internal error(%d): %s',res.statusCode,err.message);
-            return res.send({ error: 'Server error' });
-        }
-    });
+    log.info("req.query",req.query);
+    if(req.query.min_id);
+    ImageModel
+        .find({})
+        .where('created').gt(0)
+        .sort('-created')
+        .exec(
+            function (err, images) {
+                if (!err) {
+                    log.info('image feed:: ',images);
+                    return res.send({data:images});
+                } else {
+                    res.statusCode = 500;
+                    log.error('Internal error(%d): %s',res.statusCode,err.message);
+                    return res.send({ error: 'Server error' });
+                }
+        });
 });
 
 app.get('/api/articles', passport.authenticate('bearer', { session: false }), function(req, res) {

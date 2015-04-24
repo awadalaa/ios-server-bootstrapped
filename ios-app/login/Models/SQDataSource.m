@@ -146,6 +146,10 @@ NSString *const SQImageFinishedNotification = @"SQImageFinishedNotification";
         self.isRefreshing = YES;
         
         NSString *minID = [[self.mediaItems firstObject] idNumber];
+        
+        //NSDate *createDate = (NSDate *)[[self.mediaItems firstObject] created];
+        
+        //NSString *createEpoch = [NSString stringWithFormat:@"%lli",[@(floor([createDate timeIntervalSince1970])) longLongValue]];
         NSDictionary *parameters = minID ? @{@"min_id": minID} : nil;
         
         [self populateDataWithParameters:parameters completionHandler:^(NSError *error) {
