@@ -27,8 +27,7 @@ var Images = new Schema({
     caption:  { type: String, required: true },
     user_id:  { type: Schema.ObjectId, ref: 'User' },
     username: { type: String },
-    created: { type : Date, default: Date.now },
-    updated: { type : Date }
+    created: { type: Number, default: function(){return new Date().getTime()} }
 });
 var ImageModel = mongoose.model('Images', Images);
 

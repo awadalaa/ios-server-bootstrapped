@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zKE-Jz-afS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12" y="64"/>
+            <point key="canvasLocation" x="-12" y="-516"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cUi-kZ-frf">
@@ -129,12 +129,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="pGg-6v-bdr" kind="relationship" relationship="rootViewController" id="gHM-BZ-A1V"/>
+                        <segue destination="BLM-1g-xkA" kind="relationship" relationship="rootViewController" id="NHZ-CP-Afk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="61" y="-616"/>
+            <point key="canvasLocation" x="-401" y="-516"/>
         </scene>
         <!--Master-->
         <scene sceneID="VgW-fR-Quf">
@@ -179,7 +179,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="64"/>
+            <point key="canvasLocation" x="435" y="-516"/>
         </scene>
         <!--Detail-->
         <scene sceneID="Cn3-H9-jdl">
@@ -222,7 +222,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
                 <exit id="qu3-sC-F9F" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="902" y="64"/>
+            <point key="canvasLocation" x="878" y="-516"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -230,7 +230,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="rx5-Mc-3Fg"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -22,7 +22,7 @@
     
     SQNavigationController *navVC = [[SQNavigationController alloc] init];
     
-    if (![SQDataSource sharedInstance].accessToken) {
+    if ([SQDataSource sharedInstance].accessToken) {
         SQLoginViewController *loginVC = [[SQLoginViewController alloc] init];
         [navVC setViewControllers:@[loginVC] animated:YES];
         

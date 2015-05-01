@@ -44,8 +44,6 @@ var guid = function() {
     };
 
 app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ multipartMiddleware, function(req, res) {
-    log.info("here we are getting part of your imag");
-    log.debug("req.files.userfile.originalFilename",req.files.userfile.originalFilename,req.files.userfile.path,req.files.userfile.size / 1024 | 0);
     var uuid = guid();
     var newPath = "public/image/" + String(uuid) + ".jpg"
     var virtualPath = "image/" + String(uuid) + ".jpg"
@@ -64,11 +62,8 @@ app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ 
         username: req.body.username
     });
 
-    
-
     image.save(function (err) {
         if (!err) {
-            log.info("image created");
             return res.send({ status: 'OK', image:image });
         } else {
             console.log(err);
@@ -85,16 +80,14 @@ app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ 
 });
 
 app.get('/api/feed', function(req, res) {
-    log.info("req.query",req.query);
-    if(req.query.min_id);
-    ImageModel
-        .find({})
-        .where('created').gt(0)
-        .sort('-created')
-        .exec(
-            function (err, images) {
+    log.info(req.query);
+    var createdAt = 0;
+    if (req.query.created)
+        createdAt = req.query.created;
+    log.info('createdAt',createdAt);
+    ImageModel.find({'created':{$gt:createdAt}},function (err, images) {
                 if (!err) {
-                    log.info('image feed:: ',images);
+                    //log.info('image feed:: ',images);
                     return res.send({data:images});
                 } else {
                     res.statusCode = 500;
