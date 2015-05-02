@@ -80,14 +80,8 @@ app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ 
 });
 
 app.get('/api/feed', function(req, res) {
-    log.info(req.query);
-    var createdAt = 0;
-    if (req.query.created)
-        createdAt = req.query.created;
-    log.info('createdAt',createdAt);
-    ImageModel.find({'created':{$gt:createdAt}},function (err, images) {
+    ImageModel.find(function (err, images) {
                 if (!err) {
-                    //log.info('image feed:: ',images);
                     return res.send({data:images});
                 } else {
                     res.statusCode = 500;
