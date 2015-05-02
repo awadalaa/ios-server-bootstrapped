@@ -64,7 +64,7 @@ DerivedData/
 
 build/
 
-image/
+image/*.jpg
 
 #####
 # Xcode private settings (window sizes, bookmarks, breakpoints, custom executables, smart groups)

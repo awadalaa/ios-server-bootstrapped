@@ -1,0 +1,1 @@
+server images are stored here under guid saved in images mongo document
