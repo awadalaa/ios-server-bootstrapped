@@ -53,7 +53,7 @@ app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ 
         fs.writeFile(newPath, data, function (err) {
             if(err) log.error("FOUND ERR",err);
         });
-     });
+    });
 
     var image = new ImageModel({
         kind: DEFAULT_IMAGE_TYPE,
@@ -80,7 +80,12 @@ app.post('/api/image', /*passport.authenticate('bearer', { session: false }),*/ 
 });
 
 app.get('/api/feed', function(req, res) {
-    ImageModel.find(function (err, images) {
+
+    ImageModel
+        .find({})
+        .sort('-created')
+        .exec(
+            function (err, images) {
                 if (!err) {
                     return res.send({data:images});
                 } else {
